@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} Checkout {% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>We hereby confirm that we have sent your order (via email)</h1>
+                <p> Order: </p>
+                <p> Name:  <b> {{ order.productname }} </b> </p>
+
+                <p> Price: <b> £{{ order.productprice }} </b> </p>
+                <p> Email: <b> {{ order.email }} </b> </p>
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p><a href="/">Continue shopping</a> </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well text-center">
+                This is a well that is a great spot for a business tagline or phone number for easy access!
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

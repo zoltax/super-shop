@@ -1,0 +1,62 @@
+
+{% extends "base.html" %}
+
+{% block title %} Categories {% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <p class="lead">My Super Shop</p>
+            <div class="list-group">
+
+                {% for category in categories %}
+                    <a href="/category/{{ category.id }}" class="list-group-item {% if id == category.id %} active {%  endif %} ">   {{ category.name|e }}</a>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="col-md-9">
+
+            {% if products|length == 0 %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            No products :(
+                        </h3>
+                    </div>
+                </div>
+
+            {% endif %}
+
+            {% for product in products %}
+
+                <div class="thumbnail">
+                    <img class="img-responsive" src="{{ product.image }}" alt="">
+                    <div class="caption-full">
+                        <h4 class="pull-right">£{{ product.price }}</h4>
+                        <h4>{{ product.name }}</h4>
+                        {{ product.description }}
+
+                        </div>
+                    <div class="ratings">
+                        <p class="pull-right"><a href="/checkout/{{ product.id }}"> Buy me!</a></p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            4.0 stars
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

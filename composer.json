@@ -1,0 +1,25 @@
+{
+    "name": "filipkulig/sme",
+    "description": "Simple MVC E-commerce platform",
+    "authors": [
+        {
+            "name": "Filip Kulig",
+            "email": "filip.kulig@performancehorizon.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "~2.0",
+        "twig/twig": "~1.17",
+        "phpmailer/phpmailer": "^5.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.3.*",
+        "mockery/mockery": "dev-master"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "EM\\" : "app/",
+            "EMBL\\" : "app/src/"
+        }
+    }
+}

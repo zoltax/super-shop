@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %} Categories {% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <p class="lead">My Super Shop</p>
+            <div class="list-group">
+
+                {% for category in categories %}
+                    <a href="/category/{{ category.id }}" class="list-group-item">{{ category.name|e }}</a>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="col-md-9">
+
+            <h3>
+                Select a category.
+            </h3>
+
+        </div>
+
+    </div>
+
+{% endblock %}

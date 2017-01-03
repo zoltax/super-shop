@@ -1,0 +1,64 @@
+Simple MVC E-Commerce Application
+Filip Kulig ( filipkulig@gmail.com )
+
+This is a simple demo application. This is a solution which solves a Simple E-Commerce Developer Test.
+Application is written in PHP 7.1, it was tested with built PHP web-development server.
+I did not tested application in lower PHP version and I can't promise it will run on PHP 5.* ( Most probably not )
+
+Created application has "happy path" solution only. There is not error handling or validation.
+
+MySql was used as a data persistence layer in this demo project. Sql dump it's attached in root folder and named: shop.sql
+MySql config in stored in public/index.php file.
+
+Main application is divided into two separated layers:
+
+Framework and Business Logic.
+
+Framework:
+
+    As a framework I used a Silex. This a simple application and there was no need for using something heavier then micro framework. Basic layers of the MVC design patters are in the app.
+
+    M I don't have a standard Model layer, more details are in Business Logic paragraph.
+    V View are simple and created using the twig template engine. /public/views. There is a base template ( as a layout ) and the specific ones. View are written using css bootstrap framework.
+    C Controllers are thin and lightweight as views. What the do is fetch a right service and call a method on it. Some basic feature of the web are used, like request or response, but nothing fancy.
+
+    In general, that was mine first encounter of the Silex framework. Every single line of code was written first time by me and I have never worked with this framework, so few thing might have been written better, but in general I'm happy with the end result.
+
+
+Business Logic
+
+This is the park I'm supper happy with.
+I know that was the simple MVC application, but this a developer test as well.
+Solution provided by me is following a clean code and solid principles. Clean architecture with TDD was used to create this web application.
+
+We can see a strictly marked layers:
+- Entities
+- Repositories
+- Services
+- Gateways
+
+https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html
+
+Using this approach we can ensure that system is:
+- Well written
+- Well tested ( except gateway and helper layers I have 100% test code coverage _
+- Framework/Database/Third-party solutions independent
+- Easy to maintain, scale and develop.
+
+I'm willing to elaborate on Clean Architecture approach on phone or skype interview. There is a lot I can tell about and that README is not prefect place to do so.
+
+All external dependencies are manager via composer.
+
+
+Code is easy to read, well structured, so it does no require a lot of comments.
+
+Set up and run:
+
+Database:
+   *  mysql, execute a provided shop.sql file, change a credentials in public/index.php
+   *  Run embedded in PHP web server:
+   *  `php -S 127.0.0.1:1337 -t public` from main directory
+   *  proceed to: http://127.0.0.1:1337/
+
+
+It should work :)
